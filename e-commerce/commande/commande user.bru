@@ -1,0 +1,18 @@
+meta {
+  name: commande user
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:3001/commande/user/2
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "date_creation" : "05/01/2025",
+    "id_user":2
+  }
+}
