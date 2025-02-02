@@ -1,8 +1,8 @@
-import commandeRepo, {Commande} from '../repository/commande'
+import commandeRepo from '../repository/commande'
+import {Commande, CreateCommandeDto} from "../model/commande.model";
 
-export const createCommande = async (commande: Commande) => {
-
-    return await commandeRepo.CreateCommande(commande)
+export const createCommande = async (commande: CreateCommandeDto) => {
+    return await commandeRepo.createCommande(commande)
 
 }
 
