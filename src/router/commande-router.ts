@@ -3,7 +3,7 @@ import commandeController from '../controller/commande'
 
 const commnadeRouter: Router = Router();
 
-commnadeRouter.post('/', commandeController.CreateCommandeHandler)
+commnadeRouter.post('/', commandeController.createCommandeHandler)
 commnadeRouter.get('/user/:id', commandeController.getCommandeByUserHandler)
 commnadeRouter.get('/:id', commandeController.getCommandeByIdHandler)
 

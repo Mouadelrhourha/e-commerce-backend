@@ -12,7 +12,7 @@ const isValidCreateCommandeDto = (createCommandeDto: any)=> {
 export const createCommandeHandler = async (req: Request, res: Response) => {
     const createCommandeDto : CreateCommandeDto = req.body;
     if(!isValidCreateCommandeDto(createCommandeDto)){
-        return res.status(400).json({error: 'Invalid input'})
+         res.status(400).json({error: 'Invalid input'})
     }
     const createdCommande = await commandeService.createCommande(createCommandeDto)
     res.status(201).json(createdCommande)
@@ -32,4 +32,4 @@ export const getCommandeByIdHandler = async (req: Request, res: Response) => {
     res.status(200).json(commandeById);
 
 }
-export default {CreateCommandeHandler: createCommandeHandler, getCommandeByIdHandler, getCommandeByUserHandler}
+export default {createCommandeHandler, getCommandeByIdHandler, getCommandeByUserHandler}

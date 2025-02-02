@@ -43,10 +43,12 @@ export const createCommande = async (commande: CreateCommandeDto): Promise<Comma
         INSERT INTO produit_commande
             (id_produit, id_commande, quantite, prix_unitaire)
         VALUES ($1, $2, $3, $4)
+        RETURNING *
     `);
     // inserer les produits et les stocker dans un tableau
     const products : ProductQuantity[] = [];
     for (const product of commande.products) {
+        console.log([product.idProduit, createdCommande.id, product.quantite, product.prixUnitaire])
         const insertProductQuantityQuery = await client.query(insertProductsQueryString,
             [product.idProduit, createdCommande.id, product.quantite, product.prixUnitaire]
         )
